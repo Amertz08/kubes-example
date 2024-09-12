@@ -1,0 +1,16 @@
+# TODO: parallel jobs
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-example
+spec:
+  template:
+    spec:
+      containers:
+        - name: hello
+          image: kubes-example
+          imagePullPolicy: Never
+          command:
+            - "python3.12"
+            - "--version"
+      restartPolicy: Never
