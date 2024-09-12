@@ -7,3 +7,7 @@ compile:
 .PHONY: sync
 sync:
 	@pip-sync requirements*.txt
+
+.PHONY: run
+run:
+	@fastapi dev src/main.py
