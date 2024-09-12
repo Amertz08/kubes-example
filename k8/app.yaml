@@ -20,3 +20,9 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              port: 8000
+              path: /
+            initialDelaySeconds: 3
+            periodSeconds: 3
