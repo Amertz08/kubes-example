@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate-down
+spec:
+  template:
+    spec:
+      containers:
+        - name: migrate-down
+          image: kubes-example
+          imagePullPolicy: Never
+          command: [ "alembic", "downgrade", "-1" ]
+      restartPolicy: Never
+  backoffLimit: 2
+  
