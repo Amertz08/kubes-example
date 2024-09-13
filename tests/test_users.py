@@ -20,5 +20,5 @@ def test_can_get_user(client):
 
 
 def test_user_does_not_exist_raises_404(client):
-    response = client.get(f"/users/123")
+    response = client.get("/users/123")
     assert response.status_code == 404
