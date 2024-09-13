@@ -38,6 +38,7 @@ async def read_user(
         repositories.UserRepository, fastapi.Depends(repositories.UserRepository)
     ] = repositories.UserRepository(SQLALCHEMY_DATABASE_URL),
 ):
-    # TODO: 404 case
     user = user_repository.get(user_id)
+    if user is None:
+        raise fastapi.HTTPException(status_code=404)
     return user
