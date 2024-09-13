@@ -41,3 +41,7 @@ Project to learn Kubernetes
   - Topology Aware Routing
   - Service ClusterIP allocation
   - Service Internal Traffic Policy
+
+
+## questions
+- labels use cases?
