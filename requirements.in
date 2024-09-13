@@ -2,3 +2,4 @@ fastapi[standard]
 sqlalchemy
 pg8000
 alembic
+pydantic
