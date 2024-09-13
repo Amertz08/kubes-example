@@ -12,4 +12,5 @@ spec:
           command: [ "alembic", "upgrade", "head" ]
       restartPolicy: Never
   backoffLimit: 2
+  ttlSecondsAfterFinished: 120
   
