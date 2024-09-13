@@ -1,3 +1,5 @@
+import typing
+
 import fastapi
 
 import schemas
@@ -21,9 +23,9 @@ async def healthcheck():
 @app.post("/users", status_code=201, response_model=schemas.User)
 async def create_user(
     user_in: schemas.UserBase,
-    user_repository: repositories.UserRepository = fastapi.Depends(
-        repositories.UserRepository(SQLALCHEMY_DATABASE_URL)
-    ),
+    user_repository: typing.Annotated[
+        repositories.UserRepository, fastapi.Depends(repositories.UserRepository)
+    ] = repositories.UserRepository(SQLALCHEMY_DATABASE_URL),
 ) -> schemas.User:
     user = user_repository.add(user_in.username, user_in.email)
     return user
