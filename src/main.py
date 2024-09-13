@@ -18,6 +18,7 @@ async def healthcheck():
     return {"Healthy": True}
 
 
+# TODO: actually take parameters from request
 @app.post("/users", status_code=201, response_model=schemas.User)
 async def create_user(
     user_repository: repositories.UserRepository = fastapi.Depends(
