@@ -34,10 +34,11 @@ def setup_db(db_url):
     cfg = Config(str(SRC_PATH / "alembic.ini"))
 
     eng = sqlalchemy.create_engine(db_url)
-    tables.metadata.create_all(eng)
+    tables.mapper_registry.metadata.create_all(eng)
 
     cfg.set_section_option("alembic", "sqlalchemy.url", db_url)
     cfg.set_section_option("alembic", "script_location", str(SRC_PATH / "migrations"))
     command.stamp(cfg, "head")
+    tables.start_mappers()
     yield
-    tables.metadata.drop_all(eng)
+    tables.mapper_registry.metadata.drop_all(eng)

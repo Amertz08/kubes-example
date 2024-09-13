@@ -1,6 +1,6 @@
 import sqlalchemy
 
-import tables
+import schemas
 
 
 class UserRepository:
@@ -12,11 +12,11 @@ class UserRepository:
 
     def add(self, username: str, email: str):
         with self.engine.connect() as conn:
-            # TODO: cannot commit transaction
             result = conn.execute(
-                sqlalchemy.insert(tables.users)
+                sqlalchemy.insert(schemas.User)
                 .values(username=username, email=email)
                 .returning(sqlalchemy.literal_column("*"))
-            )
-            conn.commit()
-        return {"id": 1, "username": username, "email": email}
+            ).fetchone()
+        return schemas.User.model_validate(
+            dict(id=result.id, username=result.username, email=result.email)
+        )

@@ -9,5 +9,6 @@ def test_repository(setup_db, db_url):
 
     result = repo.add(username, email)
 
+    # TODO: accessing causes error
     assert result.username == username
     assert result.email == email
