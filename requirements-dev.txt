@@ -6,6 +6,8 @@
 #
 anyio==4.4.0
     # via httpx
+attrs==24.2.0
+    # via pytest
 certifi==2024.8.30
     # via
     #   httpcore
@@ -26,9 +28,17 @@ packaging==24.1
     # via pytest
 pluggy==1.5.0
     # via pytest
-pytest==8.3.3
+py==1.11.0
+    # via pytest
+pytest==6.2.5
+    # via
+    #   -r requirements-dev.in
+    #   pytest-pythonpath
+pytest-pythonpath==0.7.4
     # via -r requirements-dev.in
 sniffio==1.3.1
     # via
     #   anyio
     #   httpx
+toml==0.10.2
+    # via pytest
