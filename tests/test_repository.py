@@ -1,4 +1,8 @@
+import pytest
+
 import repositories
+
+pytestmark = pytest.mark.integration
 
 
 def test_can_add_user(setup_db, db_url):

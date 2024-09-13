@@ -1,3 +1,8 @@
+import pytest
+
+pytestmark = pytest.mark.unit
+
+
 def test_create_user(client):
     input_data = {"username": "steve", "email": "steve@example.com"}
     response = client.post("/users", json=input_data)

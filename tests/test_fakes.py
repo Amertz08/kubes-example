@@ -1,5 +1,9 @@
+import pytest
+
 import schemas
 from tests import fakes
+
+pytestmark = pytest.mark.unit
 
 
 class TestUserRepo:
