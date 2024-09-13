@@ -13,3 +13,9 @@ class FakeUserRepo:
         user = schemas.User(id=_id, username=username, email=email)
         self.users.append(user)
         return user
+
+    def get(self, user_id: int) -> schemas.User | None:
+        for user in self.users:
+            if user.id == user_id:
+                return user
+        return None

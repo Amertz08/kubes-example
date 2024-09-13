@@ -29,3 +29,15 @@ async def create_user(
 ) -> schemas.User:
     user = user_repository.add(user_in.username, user_in.email)
     return user
+
+
+@app.get("/users/{user_id}", response_model=schemas.User)
+async def read_user(
+    user_id: int,
+    user_repository: typing.Annotated[
+        repositories.UserRepository, fastapi.Depends(repositories.UserRepository)
+    ] = repositories.UserRepository(SQLALCHEMY_DATABASE_URL),
+):
+    # TODO: 404 case
+    user = user_repository.get(user_id)
+    return user

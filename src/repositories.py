@@ -20,3 +20,12 @@ class UserRepository:
         return schemas.User.model_validate(
             dict(id=result.id, username=result.username, email=result.email)
         )
+
+    def get(self, user_id: int) -> schemas.User | None:
+        with self.engine.connect() as conn:
+            result = conn.execute(
+                sqlalchemy.select(schemas.User).where(id=user_id)
+            ).fetchone()
+            return schemas.User.model_validate(
+                dict(id=result.id, username=result.username, email=result.email)
+            )
