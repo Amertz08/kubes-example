@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate-up
+spec:
+  template:
+    spec:
+      containers:
+        - name: migrate-up
+          image: kubes-example
+          imagePullPolicy: Never
+          command: [ "alembic", "upgrade", "head" ]
+      restartPolicy: Never
+  backoffLimit: 2
+  
