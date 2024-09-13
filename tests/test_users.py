@@ -2,7 +2,8 @@
 
 
 def test_create_user(client):
-    response = client.post("/users")
+    input_data = {"username": "steve", "email": "steve@example.com"}
+    response = client.post("/users", json=input_data)
 
     assert response.status_code == 201
-    assert response.json() == {"id": 1, "username": "hi", "email": "hello@example.com"}
+    assert response.json() == {"id": 1, **input_data}

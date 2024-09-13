@@ -18,12 +18,12 @@ async def healthcheck():
     return {"Healthy": True}
 
 
-# TODO: actually take parameters from request
 @app.post("/users", status_code=201, response_model=schemas.User)
 async def create_user(
+    user_in: schemas.UserBase,
     user_repository: repositories.UserRepository = fastapi.Depends(
         repositories.UserRepository(SQLALCHEMY_DATABASE_URL)
     ),
-):
-    user = user_repository.add("hi", "hello@example.com")
+) -> schemas.User:
+    user = user_repository.add(user_in.username, user_in.email)
     return user
