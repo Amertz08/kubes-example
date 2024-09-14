@@ -45,3 +45,7 @@ Project to learn Kubernetes
 
 ## questions
 - labels use cases?
+
+## general todos
+- DNS service
+- dashboard UI
