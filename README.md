@@ -62,6 +62,7 @@ Project to learn Kubernetes
 ## questions
 - labels use cases?
 
+
 ## general todos
 - Kube
   - DNS service
