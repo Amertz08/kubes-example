@@ -36,6 +36,7 @@ spec:
                   name: postgres-secret
           ports:
             - containerPort: 8000
+              name: api-port
           livenessProbe:
             httpGet:
               port: 8000

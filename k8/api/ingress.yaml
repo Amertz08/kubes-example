@@ -1,11 +1,12 @@
 # TODO is an ingress necessary if you have a service exposing the pod?
 # TODO read more into ingress controllers
+# TODO: can we not translate 80 -> 8000 over ingress or service?
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: app-ingress
+  name: api-ingress
 spec:
-  ingressClassName: app-ingress
+  ingressClassName: api-ingress
   rules:
     - http:
         paths:
