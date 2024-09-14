@@ -55,3 +55,4 @@ Project to learn Kubernetes
 - FastAPI
   - deployments
   - https
+- Diagramming

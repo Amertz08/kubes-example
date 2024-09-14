@@ -9,6 +9,8 @@ spec:
         - name: migrate-down
           image: kubes-example
           imagePullPolicy: Never
+          # TODO: how to deal with multiple downgrades or a target downgrade?
+          # Maybe some type of templating tool?
           command: [ "alembic", "downgrade", "-1" ]
           env:
             - name: POSTGRES_USER
