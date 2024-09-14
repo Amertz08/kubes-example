@@ -35,6 +35,9 @@ Project to learn Kubernetes
         - can be updated or scaled independently of app containers
       - can interact with app container given they share the same network
     - Ephemeral Containers
+      - Used to debug or inspect a hard to reproduce issue
+      - has no lifecycle guarantees
+      - started via a specific 
     - Disruptions
     - Pod Quality of Service Classes
     - User Namespaces
