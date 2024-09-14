@@ -47,6 +47,22 @@ Project to learn Kubernetes
   - Managing Workloads
 - Services, Load Balancing and Networking
   - Service
+    - method for exposing a network application that is running on one or more of your pods
+    - allows for easier service discovery
+    - can reference pod ports via their defined names instead of port number
+    - Services without selectors
+      - services commonly abstract pods but when used with a set of EndpointSlices and no selector a service can expose backends outside the cluster
+      - EndpointSlices
+        - represent a subset of backing network endpoints for a service
+        - TODO more on this
+    - Service Type
+      - May want ot expose a Service onto an External IP address, one that is accessible from outside your cluster
+      - Types
+        - ClusterIP: exposes on cluster-internal IP. Only reachable within cluster. This is default. Can expose publicly via Ingress or Gateway
+        - NodePort: exposes on Node static port
+        - LoadBalancer: exposes via a load balancer. K8s does not have one and must be provided or can be integrated w/ cloud provider
+        - ExternalName: maps to a hostname. configures cluster DNS to return a CNAME record with that external hostname value
+    - TODO: there is more to read about services
   - Ingress
   - Ingress Controllers
   - Gateway API
@@ -68,6 +84,7 @@ Project to learn Kubernetes
   - dashboard UI
   - parallel jobs
   - deployment/service with a message queue
+  - do a rolling deployment 
 - FastAPI
   - deployments
   - https
