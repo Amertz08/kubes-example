@@ -20,6 +20,12 @@ Project to learn Kubernetes
           - readinessProbe: whether the container is ready to respond to requests
           - startupProbe: whether the application within the container is started
     - Init Container
+      - run prior to app container
+      - always run to completion
+      - must complete successfully before next one starts
+      - If they fail the whole Pod fails
+      - Can run less secure code/tools instead of being ran in the app container
+      - Should be idempotent
     - Sidecar Containers
     - Ephemeral Containers
     - Disruptions
