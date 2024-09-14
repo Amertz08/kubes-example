@@ -73,3 +73,5 @@ Project to learn Kubernetes
   - https
 - Diagramming
 - Locust load testing in Kube
+- GHA
+  - build and push image
