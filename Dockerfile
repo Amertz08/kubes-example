@@ -14,6 +14,8 @@ RUN python3.12 -m pip install --upgrade \
 
 RUN python3.12 -m pip install --no-cache-dir -r requirements.txt
 
+COPY docker-entrypoint.sh .
 COPY src/ .
 
-CMD ["fastapi", "run", "main.py"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
+CMD ["api"]
