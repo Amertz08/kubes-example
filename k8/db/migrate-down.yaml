@@ -10,6 +10,22 @@ spec:
           image: kubes-example
           imagePullPolicy: Never
           command: [ "alembic", "downgrade", "-1" ]
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  key: postgres-user
+                  name: postgres-secret
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: postgres-password
+                  name: postgres-secret
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  key: postgres-db
+                  name: postgres-secret
       restartPolicy: Never
   backoffLimit: 2
   ttlSecondsAfterFinished: 120
