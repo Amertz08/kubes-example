@@ -56,3 +56,4 @@ Project to learn Kubernetes
   - deployments
   - https
 - Diagramming
+- Locust load testing in Kube
