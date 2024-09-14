@@ -8,5 +8,5 @@ cron)
   python cron_main.py
   ;;
 *)
-  exec $@
+  exec "$@"
 esac
