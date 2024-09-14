@@ -27,6 +27,13 @@ Project to learn Kubernetes
       - Can run less secure code/tools instead of being ran in the app container
       - Should be idempotent
     - Sidecar Containers
+      - ran prior to the app container
+      - will remain running when app container starts
+      - defined in `initContainers` but with `restartPolicy: Always`
+      - have own lifecycle independent of app containers
+        - can be started, stopped and restarted independently of app containers
+        - can be updated or scaled independently of app containers
+      - can interact with app container given they share the same network
     - Ephemeral Containers
     - Disruptions
     - Pod Quality of Service Classes
