@@ -47,5 +47,11 @@ Project to learn Kubernetes
 - labels use cases?
 
 ## general todos
-- DNS service
-- dashboard UI
+- Kube
+  - DNS service
+  - dashboard UI
+  - parallel jobs
+  - deployment/service with a message queue
+- FastAPI
+  - deployments
+  - https
