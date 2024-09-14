@@ -27,7 +27,7 @@ dnspython==2.6.1
     # via email-validator
 email-validator==2.2.0
     # via fastapi
-fastapi[standard]==0.114.1
+fastapi[standard]==0.114.2
     # via -r requirements.in
 fastapi-cli[standard]==0.0.5
     # via fastapi
