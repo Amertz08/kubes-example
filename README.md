@@ -1,6 +1,6 @@
 # Kubes Example
 
-Project to learn Kubernetes
+Project to learn Kubernetes. [Narrative doc](NARRATIVE.md) that outlines some of my thought process.
 
 - Workloads
   - Pods
@@ -92,3 +92,8 @@ Project to learn Kubernetes
 - Locust load testing in Kube
 - GHA
   - build and push image
+- ETL
+  - fake data generator
+- RabbitMQ
+  - deploy
+  - write consuming service
