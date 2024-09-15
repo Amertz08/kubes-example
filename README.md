@@ -17,6 +17,8 @@ document is my notes I am taking as I read the Kubernetes documentation.
 - Locust load testing in Kube
 - GHA
   - build and push image
+  - automated tests
+  - tox to define 'future' runtime?
 - ETL
   - fake data generator
 - RabbitMQ
