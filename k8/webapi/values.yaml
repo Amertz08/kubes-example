@@ -1,0 +1,5 @@
+dbSecrets:
+  name: postgres-secret
+  userKey: postgres-user
+  passwordKey: postgres-password
+  dbNameKey: postgres-db
