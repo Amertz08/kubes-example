@@ -9,4 +9,4 @@ spec:
     - name: api-backend
       port: {{ .Values.portVals.port }}
       protocol: TCP
-      targetPort: {{ .Values.portVals.name}}
+      targetPort: {{ .Values.portVals.name }}
