@@ -6,3 +6,4 @@ dbSecrets:
 portVals:
   name: api-port
   port: 8000
+replicas: 2
