@@ -39,7 +39,7 @@ spec:
               name: {{ .Values.portVals.name }}
           livenessProbe:
             httpGet:
-              port: 8000
+              port: {{ .Values.portVals.port }}
               path: /healthcheck
             initialDelaySeconds: 3
             periodSeconds: 3
