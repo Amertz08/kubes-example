@@ -1,6 +1,6 @@
 apiVersion: v2
-name: web-api-db
-description: A chart for the API Datbase
+name: web-api-cron
+description: A chart for the API Cron job
 
 # A chart can be either an 'application' or a 'library' chart.
 #
