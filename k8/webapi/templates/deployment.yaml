@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-api
+  name: {{ .Release.Name }}-api
   labels:
-    app: api
+    app: {{ .Release.Name }}-api
 spec:
-  replicas: 2
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: api
+      app: {{ .Release.Name }}-api
   template:
     metadata:
       labels:
-        app: api
+        app: {{ .Release.Name }}-api
     spec:
       containers:
         - name: api
@@ -22,24 +22,24 @@ spec:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  key: postgres-user
-                  name: postgres-secret
+                  key: {{ .Values.dbSecrets.userKey }}
+                  name: {{ .Values.dbSecrets.name }}
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: postgres-password
-                  name: postgres-secret
+                  key: {{ .Values.dbSecrets.passwordKey }}
+                  name: {{ .Values.dbSecrets.name }}
             - name: POSTGRES_DB
               valueFrom:
                 secretKeyRef:
-                  key: postgres-db
-                  name: postgres-secret
+                  key: {{ .Values.dbSecrets.dbNameKey}}
+                  name: {{ .Values.dbSecrets.name }}
           ports:
-            - containerPort: 8000
-              name: api-port
+            - containerPort: {{ .Values.portVals.port }}
+              name: {{ .Values.portVals.name }}
           livenessProbe:
             httpGet:
-              port: 8000
+              port: {{ .Values.portVals.port }}
               path: /healthcheck
             initialDelaySeconds: 3
             periodSeconds: 3

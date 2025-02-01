@@ -1,0 +1,9 @@
+dbSecrets:
+  name: postgres-secret
+  userKey: postgres-user
+  passwordKey: postgres-password
+  dbNameKey: postgres-db
+portVals:
+  name: api-port
+  port: 8000
+replicas: 2
