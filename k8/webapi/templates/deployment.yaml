@@ -35,8 +35,8 @@ spec:
                   key: {{ .Values.dbSecrets.dbNameKey}}
                   name: {{ .Values.dbSecrets.name }}
           ports:
-            - containerPort: 8000
-              name: api-port
+            - containerPort: {{ .Values.portVals.port }}
+              name: {{ .Values.portVals.name }}
           livenessProbe:
             httpGet:
               port: 8000
